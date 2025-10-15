@@ -47,45 +47,45 @@ The architecture follows OOP, DAO, and service layer principles, with persistenc
    git clone https://github.com/tu-org/booksnova.git
 ```
 
-2. Actualizar ``` bash
-src/main/resources/config.properties con credenciales de la base de datos.
+2. Update ``` bash
+src/main/resources/config.properties with database credentials.
 ```
 
-3. Construir el proyecto con Maven: ``` bash
+3. Build the project with Maven: ``` bash
 mvn clean install
 ```
 
-## Estrutucra del proyecto
+## Project structure
 
 - ``` bash src/main/java/com/codeup/booksnova/domain ```
-Clases de modelo: User, Book, Partner, Loan.
+Model classes: User, Book, Partner, Loan.
 
 - ``` bash src/main/java/com/codeup/booksnova/dao```
-Interfaces DAO y sus implementaciones JDBC para CRUD.
+DAO interfaces and their JDBC implementations for CRUD.
 
 - ``` bash src/main/java/com/codeup/booksnova/service```
-Servicios con la lógica de negocio y orquestación de DAOs.
+Services with business logic and DAO orchestration.
 
 - ``` bash src/main/java/com/codeup/booksnova/app ``` 
-Puntos de entrada: ConsoleApp, DialogApp con JOptionPane.
+Entry points: ConsoleApp, DialogApp with JOptionPane.
 
-## Implementacion
+## Implementation
 
-### Capa de dominio
-Cada entidad está representada con validaciones básicas en constructores y mantiene campos de auditoría con LocalDateTime.
+### Domain layer
+Each entity is represented with basic validations in constructors and maintains audit fields with LocalDateTime.
 
-### Capa DAO
-Se definen las interfaces UserDAO, BookDAO, PartnerDAO, LoanDAO y sus implementaciones JDBC (*DaoJdbc) usando ConnectionFactory para leer config.properties.
+### DAO layer
+The UserDAO, BookDAO, PartnerDAO, LoanDAO interfaces and their JDBC implementations (*DaoJdbc) are defined using ConnectionFactory to read config.properties.
 
-### Capa de servicio
-Implementaciones ```bash (UserServiceImpl, BookServiceImpl, PartnerServiceImpl, LoanServiceImpl)``` que aplican reglas de negocio, validaciones y transacciones con commit/rollback.
+### Service layer
+Implementations ```bash (UserServiceImpl, BookServiceImpl, PartnerServiceImpl, LoanServiceImpl)``` that apply business rules, validations, and transactions with commit/rollback.
 
-### Interfaz de usuario
-- Swing Frames para registro y login de usuarios con validaciones y feedback vía ``` bash JOptionPane.```
-- ``` bash ConseleApp ``` usa ``` bash JOptionPane.showOptionDialog ``` para menús CRUD de libros, socios y préstamos.
+### User interface
+- Swing Frames for user registration and login with validations and feedback via ``` bash JOptionPane.```
+- ``` bash ConseleApp ``` uses ``` bash JOptionPane.showOptionDialog ``` for CRUD menus for books, partners, and loans.
 
-## Configuracion
-Archivo: ```bash Archivo: src/main/resources/config.properties```
+## Configuration
+File: ```bash File: src/main/resources/config.properties```
 ``` bash jdbc.url=jdbc:mysql://localhost:3306/booksnova
 jdbc.user=root
 jdbc.password=secret
@@ -93,7 +93,7 @@ jdbc.password=secret
 loanPeriodDays=14
 finePerDay=0.50
 ```
-Dependencia de MySQL en pom.xml: 
+MySQL dependency in pom.xml: 
 ``` bash 
 <dependency>
   <groupId>com.mysql</groupId>
@@ -102,15 +102,15 @@ Dependencia de MySQL en pom.xml:
 </dependency>
 
 ```
-## Uso
-- Ejecutar la versión dialogada: ```bash mvn exec:java -Dexec.mainClass="com.codeup.booksnova.app.ConseleApp"```
+## Usage
+- Run the dialog version: ```bash mvn exec:java -Dexec.mainClass=“com.codeup.booksnova.app.ConseleApp”```
 
-## Mejoras y futuras funcionalidades
-- Hasheo de contraseñas con BCrypt
-- Internacionalización de mensajes
-- Exposición de API REST con Spring Boot
-- Reportes de actividad y métricas
-- Pruebas unitarias e integración continua
+## Improvements and future features
+- Password hashing with BCrypt
+- Message internationalization
+- REST API exposure with Spring Boot
+- Activity reports and metrics
+- Unit testing and continuous integration
 
-# Autoria 
-Desarrollado por el coder Santiago Ortega buenas prácticas de Java, OOP y patrones de diseño.
+# Authorship 
+Developed by coder Santiago Ortega using Java best practices, OOP, and design patterns.
