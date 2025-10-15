@@ -102,6 +102,10 @@ MySQL dependency in pom.xml:
 </dependency>
 
 ```
+
+## DER
+/home/Coder/Descargas/DER.png
+
 ## Usage
 - Run the dialog version: ```bash mvn exec:java -Dexec.mainClass=“com.codeup.booksnova.app.ConseleApp”```
 
